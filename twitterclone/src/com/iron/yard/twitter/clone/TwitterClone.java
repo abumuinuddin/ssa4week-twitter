@@ -19,6 +19,8 @@ public class TwitterClone extends AbstractHandler {
     
             throws IOException, ServletException {
         System.out.println("target: " + target);
+        
+        System.out.println("adding this log to try out github");
         // Declare response encoding and types
         response.setContentType("text/html; charset=utf-8");
 
