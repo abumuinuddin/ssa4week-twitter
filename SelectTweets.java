@@ -10,6 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+
 import gov.ssa.mode2.beans.TweetBean;
 
 /**
@@ -33,6 +35,12 @@ public class SelectTweets {
 		
 		SelectTweets selectUser = new SelectTweets();
 		List<TweetBean> tweetBeanList = selectUser.getTweet("shuvo");
+		
+
+		// Code web app can do to convert beanList to JSONArray	
+		JSONArray jsonArray = new JSONArray(tweetBeanList);
+		
+		System.out.println("done");
 		
 	}
 	
