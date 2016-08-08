@@ -74,6 +74,7 @@ public class UserService
 	         //System.out.println();
 	         break;
 	      }
+	      
 	      rs.close();
 	      stmt.close();
 	    }
