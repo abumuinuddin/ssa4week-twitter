@@ -20,6 +20,7 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.json.JSONObject;
 
 import com.iron.yard.twitter.clone.service.TweetService;
+import com.iron.yard.twitter.page.handler.UserHandler;
 
 public class TwitterClone extends AbstractHandler {
 
@@ -47,18 +48,14 @@ public class TwitterClone extends AbstractHandler {
         	List<JSONObject> tweets = tweetService.getTopTenTweetsJSON();
         	response.getWriter().println(tweets.toString()); 
         }
-
-        if (target.equalsIgnoreCase("/twitterLogIn")) {
-        	TweetService tweetService = new TweetService();
-        	//List<JSONObject> tweets = tweetService.getTopTenTweetsJSON();
-        	//response.getWriter().println(tweets.toString()); 
-        	response.addCookie(new Cookie("userid", "abu"));
-        	response.addCookie (new Cookie("password", "abu123"));
-        	response.sendRedirect("/web/index.html");
-        }
+        
+		if (target.equalsIgnoreCase("/twitterLogIn")) {
+			UserHandler.handleTwitterLogIn(target, response);
+		}
 
     }
-    
+
+
    
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);
