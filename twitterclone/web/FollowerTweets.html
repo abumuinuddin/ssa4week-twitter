@@ -26,7 +26,7 @@ function loadPic() {
 			console.log(i + " -> " + obj[i]['date']);	
 
 			var cp = document.createElement('span');
-			cp.innerHTML = obj[i]['date'] + "->"  + obj[i]['userID'] + "->" + obj[i]['tweet'] + "<br>";
+			cp.innerHTML = obj[i]['userid'] ;
 			document.getElementById("feeds").appendChild(cp);
 			
 	  }

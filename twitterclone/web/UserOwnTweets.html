@@ -3,13 +3,32 @@
 <head><title>Twitter Clone</title></head>
 <body>
 
-<div id="feeds">My Own Tweets</div>
+<div id="feeds"><h5>My Own Tweets</h5><br/></div>
 
 <script>
 
+//alert(getCookie("userid"));
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+         }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+         }
+    }
+    return "";
+}
+
+
 function loadPic() {
   var xhttp = new XMLHttpRequest();
-  var picUrl= 'http://localhost:8080/getUserOwnTweets';
+  var picUrl= "http://localhost:8080/getUserOwnTweets?userid="+ getCookie("userid");
   
   console.log(picUrl);
   console.log(xhttp.responseText);

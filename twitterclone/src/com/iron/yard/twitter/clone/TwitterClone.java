@@ -19,8 +19,10 @@ import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.json.JSONObject;
 
+import com.iron.yard.twitter.clone.service.FollowerService;
 import com.iron.yard.twitter.clone.service.TweetService;
 import com.iron.yard.twitter.page.handler.UserHandler;
+
 
 public class TwitterClone extends AbstractHandler {
 
@@ -43,15 +45,34 @@ public class TwitterClone extends AbstractHandler {
  
         // Write back response
      
+        if (target.equalsIgnoreCase("/twitterLogIn")) {
+     	   UserHandler.handleTwitterLogIn(target, request, response);
+        }
+        
         if (target.equalsIgnoreCase("/getLatestFeeds")) {
         	TweetService tweetService = new TweetService();
         	List<JSONObject> tweets = tweetService.getTopTenTweetsJSON();
         	response.getWriter().println(tweets.toString()); 
         }
         
-		if (target.equalsIgnoreCase("/twitterLogIn")) {
-			UserHandler.handleTwitterLogIn(target, response);
-		}
+        if (target.equalsIgnoreCase("/getFollowerTweets")) {
+            FollowerService followerService = new FollowerService();
+            System.out.println(request.getParameter("userid"));
+            List<JSONObject> tweets = followerService.getFollowerTweetsJSON(request.getParameter("userid"));
+              response.getWriter().println(tweets.toString()); 
+        }
+        
+        if (target.equalsIgnoreCase("/getUserOwnTweets")) {
+            TweetService tweetService = new TweetService();
+          List<JSONObject> tweets = tweetService.getUserTweetsJSON(request.getParameter("userid"));
+          System.out.println("tweets: " + tweets);
+          response.getWriter().println(tweets.toString()); 
+       }
+
+      
+//       if (target.equalsIgnoreCase("/getUserOwnTweets")) {
+//    	   response.getWriter().println("{\"userid\": \"abu\"}"); 
+//       }
 
     }
 
