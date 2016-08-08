@@ -2,6 +2,7 @@ package com.iron.yard.twitter.clone;
 
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,9 @@ import org.eclipse.jetty.server.handler.DefaultHandler;
 import org.eclipse.jetty.server.handler.HandlerCollection;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.json.JSONObject;
+
+import com.iron.yard.twitter.clone.service.TweetService;
 
 public class TwitterClone extends AbstractHandler {
 
@@ -38,11 +42,9 @@ public class TwitterClone extends AbstractHandler {
         // Write back response
      
         if (target.equalsIgnoreCase("/getLatestFeeds")) {
-        	//response.sendRedirect("/web/signon.html");
-        	//request.setAttribute("name", "test");
-        	String jsonStr = "[{\"date\":\"2016-08-05 12:47:00\",\"tweet\":\"Another Tweet by Shuvo\",\"userID\":\"shuvo\"}, {\"date\":\"2016-08-05 12:46:00\",\"tweet\":\"Tweet by Abu\",\"userID\":\"abu\"}]";
-        			
-        	response.getWriter().println(jsonStr); 
+        	TweetService tweetService = new TweetService();
+        	List<JSONObject> tweets = tweetService.getTopTenTweetsJSON();
+        	response.getWriter().println(tweets.toString()); 
         }
 
 
