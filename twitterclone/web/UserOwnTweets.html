@@ -3,15 +3,13 @@
 <head><title>Twitter Clone</title></head>
 <body>
 
-<div id="feeds">This page serves as home page. The latest feeds are:<br/><br/></div>
+<div id="feeds">My Own Tweets</div>
 
 <script>
 
-//javascript:alert(document.cookie);
-
 function loadPic() {
   var xhttp = new XMLHttpRequest();
-  var picUrl= 'http://localhost:8080/getLatestFeeds';
+  var picUrl= 'http://localhost:8080/getUserOwnTweets';
   
   console.log(picUrl);
   console.log(xhttp.responseText);
