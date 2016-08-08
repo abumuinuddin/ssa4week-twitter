@@ -52,7 +52,6 @@ public class TweetService
 	    
 	    try {
 	      Connection c = DBConnection.getConnection();
-	      c.setAutoCommit(false);
 	      
 	      String SQL = "SELECT USERID, TWEET, DATE FROM TWEET "
 	    		  	 + "  ORDER BY DATE DESC"	    		  	 
@@ -83,7 +82,7 @@ public class TweetService
 	    {
 	    	e.printStackTrace();
 	    }
-	    System.out.println("Retrieved Top Ten Tweets");
+	    System.out.println("Retrieved Top Ten Tweets:  " + tweets.size());
 
 		return tweets;
 	}
@@ -109,12 +108,10 @@ public class TweetService
 	   
 	    try {
 	      Connection c = DBConnection.getConnection();
-	      c.setAutoCommit(false);
 	      
 	      String SQL = "SELECT USERID, TWEET, DATE FROM TWEET "
 	    		  	 + "  WHERE USERID = '" + userID + "'"
-	    		  	 + "  ORDER BY DATE DESC"	    		  	 
-	    		  	 + "  LIMIT 10";	    		  	 
+	    		  	 + "  ORDER BY DATE DESC";
 
 	      Statement stmt = c.createStatement();
 	      ResultSet rs = stmt.executeQuery(SQL);
@@ -141,7 +138,7 @@ public class TweetService
 	    {
 	    	e.printStackTrace();
 	    }
-	    System.out.println("Retrieved User Tweets");
+	    System.out.println("Retrieved User Tweets:  " + tweets.size());
 
 		return tweets;
 	}

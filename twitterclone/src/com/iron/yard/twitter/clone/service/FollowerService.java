@@ -17,7 +17,7 @@ import com.iron.yard.twitter.clone.Tweet;
 import com.iron.yard.twitter.clone.db.DBConnection;
 
 /**
- * @author admin
+ * @author Shuvo Ahmed
  *
  */
 public class FollowerService
@@ -66,7 +66,6 @@ public class FollowerService
 	    try
 	    {
 	      Connection c = DBConnection.getConnection();
-	      c.setAutoCommit(false);
 	      
 	      String SQL = "SELECT USERID, TWEET, DATE FROM TWEET "
 	    	    	 + "  WHERE USERID = (" 
@@ -99,7 +98,7 @@ public class FollowerService
 	      e.printStackTrace();
 	    }
 
-	    System.out.println("Retreived followers tweets");
+	    System.out.println("Retreived followers tweets:  " + tweets.size());
 
 	    return tweets;
 	}
@@ -126,7 +125,6 @@ public class FollowerService
 	    try
 	    {
 	    	Connection c = DBConnection.getConnection();
-	    	c.setAutoCommit(false);
 	      
 	    	String SQL = "SELECT USERID, FOLLOWERID FROM FOLLOWER "
 	    	    	 + "  WHERE USERID = '" + userID + "'" ;  		  	 
@@ -153,7 +151,7 @@ public class FollowerService
 	    {
 	      e.printStackTrace();
 	    }
-	    System.out.println("Retrieved followers");
+	    System.out.println("Retrieved followers:  " + followers.size());
 
 	    return followers;
 	}

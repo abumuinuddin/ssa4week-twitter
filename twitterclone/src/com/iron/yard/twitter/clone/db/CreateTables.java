@@ -20,9 +20,9 @@ public class CreateTables
     	//String dropTweetTableSql = "DROP TABLE TWEET";
     	//String dropFollowerTableSql = "DROP TABLE FOLLOWER";
     	
-    	//stmt.executeUpdate("DROP TABLE USER");
-    	//stmt.executeUpdate("DROP TABLE TWEET");
-    	//stmt.executeUpdate("DROP TABLE FOLLOWER");
+    	stmt.executeUpdate("DROP TABLE IF EXISTS USER");
+    	stmt.executeUpdate("DROP TABLE IF EXISTS TWEET");
+    	stmt.executeUpdate("DROP TABLE IF EXISTS FOLLOWER");
     	
     	String createUserTableSql = "CREATE TABLE USER " +
                    "(USERID 		CHAR(25)	PRIMARY KEY     NOT NULL," +
