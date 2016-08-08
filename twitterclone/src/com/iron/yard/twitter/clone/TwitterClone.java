@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -47,6 +48,14 @@ public class TwitterClone extends AbstractHandler {
         	response.getWriter().println(tweets.toString()); 
         }
 
+        if (target.equalsIgnoreCase("/twitterLogIn")) {
+        	TweetService tweetService = new TweetService();
+        	//List<JSONObject> tweets = tweetService.getTopTenTweetsJSON();
+        	//response.getWriter().println(tweets.toString()); 
+        	response.addCookie(new Cookie("userid", "abu"));
+        	response.addCookie (new Cookie("password", "abu123"));
+        	response.sendRedirect("/web/index.html");
+        }
 
     }
     
