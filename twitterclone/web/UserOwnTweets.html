@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head><title>Twitter Clone</title></head>
+<head><title>Twitter Clone</title>
+<script type="text/javascript" src="thetwitter.js"></script>
+</head>
 <body>
+
+<div id="userInfo"></div>
 
 <div id="feeds"><h5>My Own Tweets</h5><br/></div>
 
@@ -10,27 +14,14 @@
 //alert(getCookie("userid"));
 
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1);
-         }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length,c.length);
-         }
-    }
-    return "";
-}
 
 
-function loadPic() {
+
+function loadOwnTweets() {
   var xhttp = new XMLHttpRequest();
-  var picUrl= "http://localhost:8080/getUserOwnTweets?userid="+ getCookie("userid");
+  var ajaxUrl= "http://localhost:8080/getUserOwnTweets?userid="+ getCookie("userid");
   
-  console.log(picUrl);
+  console.log(ajaxUrl);
   console.log(xhttp.responseText);
   
   xhttp.onreadystatechange = function() {
@@ -53,11 +44,14 @@ function loadPic() {
 	}
 
   };
-  xhttp.open("GET", picUrl, true);
+  xhttp.open("GET", ajaxUrl, true);
   xhttp.send();
 }
 
-loadPic();
+loadOwnTweets();
+
+var theString =" Go To  Tweets <a href='./FollowerTweets.html'> " + getCookie("userid") + "</a> follow";
+document.getElementById("userInfo").innerHTML=theString;
 
 </script>
 </body>

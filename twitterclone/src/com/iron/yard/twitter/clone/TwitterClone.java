@@ -57,9 +57,10 @@ public class TwitterClone extends AbstractHandler {
         
         if (target.equalsIgnoreCase("/getFollowerTweets")) {
             FollowerService followerService = new FollowerService();
-            System.out.println(request.getParameter("userid"));
+            
             List<JSONObject> tweets = followerService.getFollowerTweetsJSON(request.getParameter("userid"));
-              response.getWriter().println(tweets.toString()); 
+              response.getWriter().println(tweets.toString());
+            System.out.println("tweets :" + tweets.toString());
         }
         
         if (target.equalsIgnoreCase("/getUserOwnTweets")) {

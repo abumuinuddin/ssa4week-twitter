@@ -30,7 +30,7 @@ public class UserHandler {
         		System.out.println("userid=" + user.getUserID());
             	response.addCookie(new Cookie("userid", user.getUserID()));
             	//response.addCookie (new Cookie("password", user.getPassword()));
-            	response.sendRedirect("/web/UserOwnTweets.html");
+            	response.sendRedirect("/web/FollowerTweets.html");
         	} else {
         		response.sendRedirect("/web/logon.html?Err=User Not Found");
         	}
