@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+<fullyQualifiedTypeName name="org.eclipse.jetty.client.api.Request"/>
+<fullyQualifiedTypeName name="org.eclipse.jetty.server.Request"/>
+<fullyQualifiedTypeName name="com.iron.yard.twitter.clone.service.UserService"/>
+<fullyQualifiedTypeName name="org.eclipse.jetty.server.Authentication.User"/>
+<fullyQualifiedTypeName name="com.iron.yard.twitter.clone.User"/>
+<fullyQualifiedTypeName name="com.iron.yard.twitter.clone.service.TweetService"/>
+<fullyQualifiedTypeName name="com.iron.yard.twitter.clone.service.FollowerService"/>
+<fullyQualifiedTypeName name="com.iron.yard.twitter.page.handler.UserHandler"/>
+</qualifiedTypeNameHistroy>

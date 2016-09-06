@@ -1,0 +1,10 @@
+package com.iron.yard.twitter.clone;
+
+public class UserVerify {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

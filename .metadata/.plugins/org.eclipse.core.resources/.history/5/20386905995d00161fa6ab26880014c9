@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Twitter Clone</title></head>
+<body>
+
+<div id="feeds"><h3>Log in to Twitter</h3><br/></div>
+
+<div>
+Log in ID: <input type="text" id ="userid"> <br/><br/>
+Password :<input type="text" id ="password"> <br/><br/>
+<input type ="submit" width="80" align="center" id ="login" value ="Log in"
+onclick="location.href='http://localhost:8080/twitterLogIn?userid=abu&password=abu123';"  />
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Twitter Clone</title></head>
+<body>
+
+<div id="feeds"><h3>Log in to Twitter</h3><br/><br/></div>
+
+<div>
+Log in ID: <input type="text" id = "userid"> <br/>
+Password :<input type="text" id = "password"> <br/>
+<input type ="submit" id ="login" value ="Log in" />
+</div>
+
+</body>
+</html>
